@@ -1,0 +1,601 @@
+/*@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+*/
+*{font-family:"Roboto",sans-serif}
+
+html {
+    overflow-y: scroll;
+    line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    background-image: url("../images/bg-home.jpg");
+    background-repeat: no-repeat;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+#fejlec-01 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 19px;
+    color: #FFF0C0;
+    text-decoration: none;
+    padding-right: 20px;
+    border-bottom-color: #8A8A8A;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    height: 180px;
+    float: left;
+    width: 33.2%;
+}
+
+#topMenu ul {
+    list-style-type: none;
+  }
+  
+#topMenu ul li {
+    float: left;
+  }
+  
+#topMenu ul li a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 19px;
+    color: #FFF0C0;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+#fejlec-01 ul {
+    padding-top: 80px;
+}
+
+
+#fejlec-01 ul li a {
+    font-size: 18px;
+    display: inline;
+    color: #FFF0C0;
+    font-weight: 100;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+#fejlec-02 {
+    text-align: center;
+    border-bottom-color: #8A8A8A;
+    border-radius: 90px 90px 50% 50% / 0 0 35% 35%;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    height: 270px;
+    float: left;
+    width: 33.2%;
+}
+#info{
+    background-color: #FFD655;
+    text-align: center;
+    margin: 0 65px 0 65px;
+    border-radius: 20px;
+}
+
+#info p {
+    color: black;
+}
+
+#fejlec-03 {
+    border-bottom-color: #8A8A8A;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    height: 180px;
+    float: left;
+    width: 33.2%;
+    padding-top: 65px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.myBtnFogad {
+    display: inline-block;
+    border: 10px #FFD655 solid;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: x-large;
+    text-decoration: none;
+    color: #FFD655;
+    width: 120px;
+    height: 150px;
+    margin-left: 30px;
+    padding-top: 6%;
+    text-align: center;
+}
+
+
+.myBtnFogadON {
+    background: #000;
+    background: linear-gradient(45deg, #000 10%, #ffd655 85%);
+}
+.myBtnFogadOFF {
+    background: #000;
+    background: linear-gradient(45deg, #ffd655 10%, #000 85% );
+    opacity: 27%;
+    color: darkseagreen;
+}
+
+.mylBtn {
+    display: inline-block;
+    border: 5px #FFD655 solid;
+    border-radius: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #FFD655;
+}
+.btnBlack {
+    background: #000;
+    background: linear-gradient(45deg, #000 90%, #ffd655 85%);
+    color: #FFD655;
+}
+.btnDYellow {
+    background-color: #FFD655;
+    color: black;
+}
+.btnS {
+    width: 160px;
+    height: 75px;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 15px;
+}
+.btnL {
+    width: 410px;
+    height: 120px;
+    font-size: 44px;
+    text-align: center;
+    padding-top: 15px;
+}
+.glow {
+    box-shadow: 0px 0px 50px 5px rgba(255,214,85,0.3);
+}
+
+section#welcome h1.welcome {
+    margin-top: 115px;
+}
+h1.center {
+    text-align: center;
+}
+h1.header {
+    color: #FFF0C0;
+    font-size: 72px;
+}
+section#welcome p.welcome {
+    font-size: 23px;
+    margin-top: 50px;
+}
+.text-center {
+    text-align: center!important;
+}
+body p {
+    font-size: 18px;
+    color: #FFF0C0;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+
+section#welcome div.jackpot {
+    text-align: center;
+    margin-top: 85px;
+    background: #000;
+    background: linear-gradient(180deg, #000 65%, #ffd655 65%);
+    border: #FFD655 10px solid;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 600;
+    padding: 0px 50px;
+    color: #000;
+}
+
+.text-center {
+    text-align: center!important;
+}
+myBtnFogad a {
+    text-decoration: none;
+}    
+
+.fogad_gombok {
+    margin-top: 20px;
+    padding-left: 6%;
+    margin-bottom: 20px;
+}
+
+.inp_z{
+    visibility: hidden;
+    text-align: center;
+    font-size: 40px;
+    margin-left: 18%;
+    width:60%;
+
+}
+.inp_fogad1{
+    text-align: center;
+    font-size: 50px;
+    width: 70%;
+    margin-left: 16%;
+}
+.inp_fogad2 {
+    text-align: center;
+    position: absolute;
+    z-index: 0;
+    top: 15px;
+}
+.inp_fogad3 {
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+}
+
+.inp_fogad4 {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+}
+
+.fogad_inp1 .fogad_inp2{
+    margin-left: 30px;
+}
+.fogad_elkuld {
+    margin-top: 63px;
+}
+section#welcome div.jackpot span {
+    font-size: 72px;
+    color: #FFD655;
+    font-weight: 900;
+}
+
+
+section#wallOfWinners div.verticalLine {
+    border-right: 2px solid #FFD655;
+    height: 120px;
+    margin: 50px 0;
+    width: 50%;
+    left: -50%;
+}
+
+section#wallOfWinners div.winnerBox h2 {
+    color: #FFF0C0;
+    text-decoration: underline;
+    font-size: 47px;
+    padding: 40px 0 40px 40px;
+}
+
+section#wallOfWinners div.winnerBox {
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../images/div-gb-01.jpg);
+    border: 2px solid #FFD655;
+}
+
+section#wallOfWinners div.topUserRow {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+section#wallOfWinners div.topUserRow .user {
+    font-size: 30px;
+    text-align: center;
+    color: #000;
+    background-color: #FFF0C0;
+    border: #FFF0C0 solid 2px;
+}
+section#wallOfWinners div.topUserRow .prize {
+    font-size: 30px;
+    text-align: center;
+    border: #FFF0C0 solid 2px;
+    color: #FFF0C0;
+}
+section#wallOfWinners div.topUserRow .number {
+    float: left;
+    text-align: center;
+    width: 75px;
+    font-weight: 900;
+    font-size: 30px;
+    background-color: #FFD655;
+    color: black;
+    border: #FFD655 2px solid;
+}
+
+.justify-content-center {
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+}
+
+
+.lw {
+    color: white;
+    text-align: center;
+}
+
+.user {
+    font-size: 30px;
+}
+.prize {
+    font-size: 30px;
+    font-weight: bold;
+}
+.time{
+    font-size: 24px;
+}
+.date {
+    font-size: 24px;
+}
+.register{
+    background: -webkit-linear-gradient(left, #ffd655, #241e03);
+    margin-top: 3%;
+    padding: 3%;
+    border-radius: 20px;
+}
+
+.register-right{
+    background: #ffd655;
+
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.register-left{
+    text-align: center;
+    color: #1c1e20;
+    margin-top: 4%;
+}    
+
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #ffd655;
+    font-weight: bold;
+    color: #241e03;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+    
+}
+
+.form-control {
+    background-color: #4c4444;
+    color: #ffd655;
+
+}
+
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #241e03;
+    color: #ffd655;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #241e03;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #ffd655;
+    border: 2px solid #ffd655;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+
+section#findOut {
+    margin-top: 65px;
+}
+section#findOut h2.header {
+    font-size: 55px;
+}
+h2.left {
+    text-align: left;
+}
+section#findOut div.divider {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #FFD655;
+    padding-bottom: 125px;
+}
+section#findOut p {
+    font-size: 23px;
+    margin-top: 60px;
+    color: #FFF0C0;
+}
+
+h2.header {
+    color: #FFF0C0;
+    font-size: 55px;
+}
+
+section#aboutTheGame p {
+    font-size: 23px;
+    font-weight: 100;
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+
+
+footer section#CTANewsletter div.CTA {
+    width: 100%;
+    height: 275px;
+    background-color: #FFD655;
+}
+.glow {
+    box-shadow: 0px 0px 50px 5px rgba(255,214,85,0.3);
+}
+footer section#CTANewsletter div.CTA h1.header {
+    color: #000;
+    font-size: 55px;
+    margin-top: 70PX;
+}
+
+footer section#CTANewsletter div.CTA h3.subHeader {
+    color: #000;
+    font-size: 23px;
+}
+b, strong {
+    font-weight: bolder;
+}
+
+footer section#CTANewsletter div.CTA div.CTADiv {
+    margin-top: 85px;
+}
+
+footer section#CTANewsletter div.CTA input.CTAEmail {
+    border: none;
+    height: 75px;
+    border-radius: 15px;
+    background-color: #FFF0C0;
+    padding: 0 130px 0 20px;
+    float: left;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.fa, .fas {
+    font-weight: 900;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+.fa, .fab, .fad, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+div.btnBox {
+    border: #FFD655 1px solid;
+    border-radius: 25px;
+}
+div.btnBox a.boxBtn {
+    margin: 15px;
+    border: #FFD655;
+    border-radius: 15px;
+    display: block;
+    padding: 115px 20px;
+    text-align: center;
+    background-color: #1b1b1b;
+}
+div.btnBox a.boxBtn i {
+    font-size: 45px;
+    color: #FFF0C0;
+}
+
+div.btnBox a.boxBtn p {
+    color: #FFF0C0 !important;
+    font-size: 18px;
+}
+div.btnBox a.boxBtn p {
+    color: #FFF0C0 !important;
+    font-size: 18px;
+}
+#CTANewsletter {
+    margin-top: 20px;
+}
+footer section#CTANewsletter div.CTA a.CTABtn {
+    float: left;
+    display: block;
+    width: 270px;
+    text-align: center;
+    color: #FFF0C0;
+    font-size: 28px;
+    height: 75px;
+    padding-top: 15px;
+    background-color: #000;
+    border-radius: 15px;
+    margin-left: -15px;
+}
