@@ -6,8 +6,34 @@ $(document).ready(function() {
         document.getElementById("btnlogin").innerHTML="Login";
     }
     
+    var interval = setInterval(timestamphome, 1000);
+
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    
+    var n = weekday[d.getDay()];
+   
 });
 
+
+
+function timestamphome(){
+    var date;
+    date = new Date();
+    "<?php $m_buksza = 'Lonyal' ?>";
+    var time = document.getElementById('timediv'); 
+    var m_credit = document.getElementById('credit');
+    time.innerHTML = date.toLocaleTimeString();
+    m_credit.innerHTML="<?php $m_buksza ?>";
+}
+   
 function logaction(){
     var aktshow = document.getElementById('btnlogin').innerText;
     $.ajax({
@@ -31,9 +57,8 @@ function logaction(){
 }
 
 function clc_fogad0() {
-
         var x = document.getElementById("btnfogad1");
-    x.classList.toggle("myBtnFogadOFF");
+        x.classList.toggle("myBtnFogadOFF");
 }
 
 
@@ -59,11 +84,19 @@ function clc_fogad(melyik){
             x3.classList.add("myBtnFogadOFF");
             x4.classList.add("myBtnFogadOFF");
 
+            document.getElementById("inp_fog1").style.visibility="visible";
             document.getElementById("inp_fog2").style.visibility="hidden";
+            document.getElementById("inp_fog2").value="";
             document.getElementById("inp_fog3").style.visibility="hidden";
+            document.getElementById("inp_fog3").value="";
             document.getElementById("inp_fog4").style.visibility="hidden";
+            document.getElementById("inp_fog4").value="";
 
-
+            var date;
+            date = new Date();
+            var time = document.getElementById('inp_fog1'); 
+            time.value = date.toLocaleTimeString();
+        
             break;
     
         case "btnfogad2":
@@ -82,6 +115,7 @@ function clc_fogad(melyik){
             x3.classList.add("myBtnFogadOFF");
             x4.classList.add("myBtnFogadOFF");
 
+            document.getElementById("inp_fog1").style.visibility="visible";
             document.getElementById("inp_fog2").style.visibility="visible";
             document.getElementById("inp_fog3").style.visibility="hidden";
             document.getElementById("inp_fog4").style.visibility="hidden";
@@ -104,7 +138,8 @@ function clc_fogad(melyik){
             x2.classList.add("myBtnFogadOFF");
             x4.classList.add("myBtnFogadOFF");
 
-            document.getElementById("inp_fog2").style.visibility="hidden";
+            document.getElementById("inp_fog1").style.visibility="visible";
+            document.getElementById("inp_fog2").style.visibility="visible";
             document.getElementById("inp_fog3").style.visibility="visible";
             document.getElementById("inp_fog4").style.visibility="hidden";
 
@@ -125,8 +160,9 @@ function clc_fogad(melyik){
             x2.classList.add("myBtnFogadOFF");
             x3.classList.add("myBtnFogadOFF");
             
-            document.getElementById("inp_fog2").style.visibility="hidden";
-            document.getElementById("inp_fog3").style.visibility="hidden";
+            document.getElementById("inp_fog1").style.visibility="visible";
+            document.getElementById("inp_fog2").style.visibility="visible";
+            document.getElementById("inp_fog3").style.visibility="visible";
             document.getElementById("inp_fog4").style.visibility="visible";
 
             break;
@@ -135,14 +171,40 @@ function clc_fogad(melyik){
 
 }
 
-function sub_login() {
-    alert("LOGIN GOMB");
+function nullaz() {
+    var x1 = document.getElementById("btnfogad1");
+    var x2 = document.getElementById("btnfogad2");
+    var x3 = document.getElementById("btnfogad3");
+    var x4 = document.getElementById("btnfogad4");
+
+    x1.classList.remove("myBtnFogadOFF");
+    x2.classList.remove("myBtnFogadOFF");
+    x3.classList.remove("myBtnFogadOFF");
+    x4.classList.remove("myBtnFogadOFF");
+    x1.classList.remove("myBtnFogadON");
+    x2.classList.remove("myBtnFogadON");
+    x3.classList.remove("myBtnFogadON");
+    x4.classList.remove("myBtnFogadON");
+
+    x4.classList.add("myBtnFogadOFF");
+    x1.classList.add("myBtnFogadOFF");
+    x2.classList.add("myBtnFogadOFF");
+    x3.classList.add("myBtnFogadOFF");
+
+
+    document.getElementById("inp_fog1").style.visibility="hidden";
+    document.getElementById("inp_fog2").style.visibility="hidden";
+    document.getElementById("inp_fog3").style.visibility="hidden";
+    document.getElementById("inp_fog4").style.visibility="hidden";
+
+
+function buksza(){
+
+    $amu=$_SESSION(['amunt']);
+    return $amu;
 }
 
-function sub_fogadas(){
-    alert("FOGADAS GOMB");
+alert("<?php echo buksza() ?>");
+
 }
 
-function sub_jatek(){
-    alert("JATÉK GOMB");
-}

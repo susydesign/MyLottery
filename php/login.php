@@ -21,10 +21,10 @@
             <div class="row">
                 <div class="l_fejlec01" class="col-md-4">
                     <a href="../index.php">Home</a>
-                    <a href="#">About Us</a>
-                    <a href="#">Rewards</a>
-                    <a href="#">News</a>
-                    <a href="#">Contact Us</a>
+                    <a href="../about-us.html">About Us</a>
+                    <a href="..revards.html">Rewards</a>
+                    <a href="../news.html">News</a>
+                    <a href="../contact.html">Contact Us</a>
                 </div>
                            
                 <div class="l_fejlec02" class="col-md-4">
@@ -79,19 +79,26 @@
         $password = mysqli_real_escape_string($conn, $user_password);
 
 //        echo "User name: $username";
+//        $sql    = "SELECT * FROM `users` WHERE username='$username' AND password='$password'";
+        $sql = "SELECT users.user_id,users.username,users.password,wallet.user_id,wallet.amunt, wallet.bonus1, wallet.bonus2, wallet.bonus3, wallet.bonus4 FROM `users` INNER JOIN `wallet` ON users.user_id=wallet.user_id WHERE users.username='$username' AND users.password='$password'";
 
-        $sql    = "SELECT * FROM `users` WHERE username='$username' AND password='$password'";
         $result = mysqli_query($conn, $sql) or die(mysql_error());
        
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $_SESSION['user_id'] = $row[user_id];
             $_SESSION['username'] = $row[username];
+            $_SESSION['amunt'] = $row[amunt];
+            $_SESSION['bonus1'] = $row[bonus1];
+            $_SESSION['bonus2'] = $row[bonus2];
+            $_SESSION['bonus3'] = $row[bonus3];
+            $_SESSION['bonus4'] = $row[bonus4];
 
-/*
-            Az infoba be kéne írnia a userneve
+
+
+/*            Az infoba be kéne írnia a userneve
             echo "<Br>Global: ".$_SESSION['username'];
-            echo " userID: ".$_SESSION['user_id'];
+            echo "<h1>Amunt: ".$_SESSION['amunt']."</h1>";
 */
             ?>
             <form class="form" method="post" name="logout">
@@ -105,6 +112,11 @@
                 session_destroy();
                 unset($_SESSION["user_id"]);
                 unset($_SESSION["username"]);
+                unset($_SESSION["amunt"]);
+                unset($_SESSION["bonus1"]);
+                unset($_SESSION["bonus2"]);
+                unset($_SESSION["bonus3"]);
+                unset($_SESSION["bonus4"]);
                 header("Location:../index.php");
             }
             if (isset($_POST['vissza'])) {
@@ -124,6 +136,11 @@
     }else{
         unset($_SESSION["user_id"]);
         unset($_SESSION["username"]);
+        unset($_SESSION["amunt"]);
+        unset($_SESSION["bonus1"]);
+        unset($_SESSION["bonus2"]);
+        unset($_SESSION["bonus3"]);
+        unset($_SESSION["bonus4"]);
 /*        echo "<Br>Global: ".$_SESSION['username'];
         echo " userID: ".$_SESSION['user_id'];
 */        

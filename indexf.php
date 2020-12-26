@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="hu">
+<!--
+Job28,20
+  "Honnan jön tehát a bölcsesség? Hol van az értelem lelőhelye?"
+Job28,23
+  "Isten ismeri az ahhoz vezető utat, ő tudja annak lelőhelyét."
+!-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> 
@@ -33,19 +39,19 @@
             <div id="topMenu">
               <ul>
                 <li>
-                  <a id="header_a1" href="/">Home</a>
+                  <a id="header_a1" href="index.php">Home</a>
                 </li>
                 <li>
-                  <a href="#">About Us</a>
+                  <a href="about-us.html">About Us</a>
                 </li>
                 <li>
-                  <a href="#">Rewards</a>
+                  <a href="revards.html">Rewards</a>
                 </li>
                 <li>
-                  <a href="#">News</a>
+                  <a href="news.html">News</a>
                 </li>
                 <li>
-                  <a href="#">Contact Us</a>
+                  <a href="contact.html">Contact Us</a>
                 </li>
               </ul>
             </div>  
@@ -68,8 +74,14 @@
                         session_start();
                         $s_id=session_id();
                         $u_nev=$_SESSION['username'];
-                        print "<p>$u_nev</p>";
+                        $u_id=$_SESSION['user_id'];   
                       ?> 
+<!--
+  <a href="./php/wallet.php"><?php echo $u_nev ?>
+!-->                      
+                      <button type="button  " class="btn btn-warning" data-toggle="modal" data-target="#modal_Wallet">
+                      <?php echo $u_nev ?>
+                      </button>                    
                     </div>
                   </td>
                 </tr>
@@ -78,9 +90,12 @@
           </div>
 
 
+
+
+
           <div id="fejlec-03" class="col-md-4">
-            <a id="btnlogin" class="mylBtn btnS glow btnBlack"  href="./php/login.php">Login</button>
-            <a class="mylBtn btnS glow btnDYellow" href="#" style="margin-left: 15px;">Sign Up</a>
+            <a id="btnlogin" class="mylBtn btnS glow btnBlack"  href="./php/login.php">Login</a>
+            <a class="mylBtn btnS glow btnDYellow" href="./php/registration.php" style="margin-left: 15px;">Sign Up</a>
           </div>
       </div>        
     </div>
@@ -125,39 +140,81 @@
     <div class="row fogad_main">
       <div class="col-md-4 register-left fogad_ball">
         <img src="./images/logo.png" alt=""/>
-          <h3>3.647.489Ft</h3>
-          <p>Ezt az összeget ma valaki haza viszi...</p>
-          <input type="submit" name="login" onclick="sub_login()" value="Login"/><br/>
+        <div id="timediv" class="form-control shadow rounded""></div>
+        <h3>3.647.489€</h3>
+        <p>This prize could be yours today...</p>
+        <div class="col-md">
+          <div id="credit_head"><h1>Your Credit</h1></div>
+          <div id="credit"class="row">
+            <?php Echo $_SESSION['amunt']."€" ?>
+          </div>
+        </div>
+        <input type="submit" name="login" onclick="sub_login()" value="Login"/><br/>
       </div>
       <div class="col-md-8 register-right fogad_jobb">
 
         <div class="row fogad_gombok">
           <div class="col-md-12">
-            <button id="btnfogad1" class="myBtnFogad myBtnFogadON" onclick="clc_fogad('btnfogad1')" >Daily</button>
-            <button id="btnfogad2" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad2')">Weekly</button>
-            <button id="btnfogad3" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad3')">Monthly</button>
-            <button id="btnfogad4" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad4')">Year</button>
+            <button id="btnfogad1" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad1')" >Hour</button>
+            <button id="btnfogad2" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad2')">Daily</button>
+            <button id="btnfogad3" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad3')">Weekly</button>
+            <button id="btnfogad4" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad4')">Monthly</button>
           </div>
         </div>
 
         <div class="row fogad_inp1">
           <div class="col-md-12">
             <form action="./php/jatek.php" method="post" target="print-popup">
-              <input id="inp_fog1" type="time" step="2" class="form-control inp_fogad1 align-middle" placeholder="Hour-Min-Sec" name="fogad1">
+              <input id="inp_id" type="hidden" value="<?php echo $u_id;?>" name="fuser">
+              <input id="inp_fog1" type="time" step="2" min="00:00:00" max="23:59:59" class="inp_fogad1" placeholder="Hour-Min-Sec" name="fogad1">
           </div>
         </div>
 
         <div class="row fogad_inp2">
-          <div class="col-md-12 col-lg-offset-12">
-            <input id="inp_fog2" type="week"  class="form-control align-middle inp_z inp_fogad2" value="" name="fogad2">
-            <input id="inp_fog3" type="month" class="form-control align-middle inp_z inp_fogad3" value="" name="fogad3">
-            <input id="inp_fog4" type="year"  class="form-control align-middle inp_z inp_fogad4" value="" name="fogad4">
+          <div class="col-md-12 input-group">
+            <select id=inp_fog2 class="form-control inp_fogad2" valur="Tuesday" name="fogad2">
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Tursday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+              <option>Sunday</option>
+            </select>
+
+            <input id="inp_fog3" type="week" class="form-control inp_fogad3" value="" name="fogad3">
+ 
+            <select id=inp_fog4 class="form-control inp_fogad4" value="December" name="fogad4">
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>Oktober</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+
           </div>
         </div>  
 
+        <div class="row bonus_gombok">
+          <div class="col-md-12">
+            <button id="btnfogad1" class="myBtnBonus myBtnFogadON" onclick="clc_fogad('btnfogad1')" >Hour</button>
+            <label for="Bonus"></label>
+            <button id="btnfogad2" class="myBtnBonus myBtnFogadON" onclick="clc_fogad('btnfogad2')">Daily</button>
+            <button id="btnfogad3" class="myBtnBonus myBtnFogadON" onclick="clc_fogad('btnfogad3')">Weekly</button>
+            <button id="btnfogad4" class="myBtnBonus myBtnFogadON" onclick="clc_fogad('btnfogad4')">Monthly</button>
+          </div>
+        </div>
+
         <div class="row fogad_elkuld">
           <div class="col-md-12">
-            <input type="submit" class="btnRegister" value="fogadas"/>
+            <input type="submit" class="btnRegister" onclick="nullaz()" value="Bet"/>
             </form> 
           </div>
         </div>
@@ -399,7 +456,7 @@
     
             <div class="col-4">
               <div class="btnBox">
-                <a href="#" class="boxBtn">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSczfNxwKy_f-cQ04el6z0hXk8iGwHHc6tavYwwnEil7tNWUgw/viewform?usp=sf_link" class="boxBtn">
                   <i class="fas fa-question"></i>
                   <p>Frequerntly asked questions</p>
                 </a>
@@ -461,129 +518,33 @@
   </footer>
   
 </body>
-<!-- Large modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-          <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                  ×</button>
-              <h4 class="modal-title" id="myModalLabel">
-                  Login/Registration </h4>
-          </div>
-          <div class="modal-body">
-              <div class="row">
-                  <div class="col-md-8" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
-                      <!-- Nav tabs -->
-                      <ul class="nav nav-tabs">
-                          <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
-                          <li><a href="#Registration" data-toggle="tab">Registration</a></li>
-                      </ul>
-                      <!-- Tab panes -->
-                      <div class="tab-content">
-                          <div class="tab-pane active" id="Login">
-                              <form role="form" class="form-horizontal">
-                              <div class="form-group">
-                                  <label for="email" class="col-sm-2 control-label">
-                                      Email</label>
-                                  <div class="col-sm-10">
-                                      <input type="email" class="form-control" id="email1" placeholder="Email" />
-                                  </div>
-                              </div>
-                              <div class="form-group">
-                                  <label for="exampleInputPassword1" class="col-sm-2 control-label">
-                                      Password</label>
-                                  <div class="col-sm-10">
-                                      <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email" />
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-sm-2">
-                                  </div>
-                                  <div class="col-sm-10">
-                                      <button type="submit" class="btn btn-primary btn-sm">
-                                          Submit</button>
-                                      <a href="javascript:;">Forgot your password?</a>
-                                  </div>
-                              </div>
-                              </form>
-                          </div>
-                          <div class="tab-pane" id="Registration">
-                              <form role="form" class="form-horizontal">
-                              <div class="form-group">
-                                  <label for="email" class="col-sm-2 control-label">
-                                      Name</label>
-                                  <div class="col-sm-10">
-                                      <div class="row">
-                                          <div class="col-md-3">
-                                              <select class="form-control">
-                                                  <option>Mr.</option>
-                                                  <option>Ms.</option>
-                                                  <option>Mrs.</option>
-                                              </select>
-                                          </div>
-                                          <div class="col-md-9">
-                                              <input type="text" class="form-control" placeholder="Name" />
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="form-group">
-                                  <label for="email" class="col-sm-2 control-label">
-                                      Email</label>
-                                  <div class="col-sm-10">
-                                      <input type="email" class="form-control" id="email" placeholder="Email" />
-                                  </div>
-                              </div>
-                              <div class="form-group">
-                                  <label for="mobile" class="col-sm-2 control-label">
-                                      Mobile</label>
-                                  <div class="col-sm-10">
-                                      <input type="email" class="form-control" id="mobile" placeholder="Mobile" />
-                                  </div>
-                              </div>
-                              <div class="form-group">
-                                  <label for="password" class="col-sm-2 control-label">
-                                      Password</label>
-                                  <div class="col-sm-10">
-                                      <input type="password" class="form-control" id="password" placeholder="Password" />
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-sm-2">
-                                  </div>
-                                  <div class="col-sm-10">
-                                      <button type="button" class="btn btn-primary btn-sm">
-                                          Save & Continue</button>
-                                      <button type="button" class="btn btn-default btn-sm">
-                                          Cancel</button>
-                                  </div>
-                              </div>
-                              </form>
-                          </div>
-                      </div>
-                      <div id="OR" class="hidden-xs">
-                          OR</div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="row text-center sign-with">
-                          <div class="col-md-12">
-                              <h3>
-                                  Sign in with</h3>
-                          </div>
-                          <div class="col-md-12">
-                              <div class="btn-group btn-group-justified">
-                                  <a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
-                                      Google</a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+
+<!-- Modal - Wallet !-->
+<div class="modal fade" id="modal_Wallet" tabindex="-1" role="dialog" aria-labelledby="walletModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="walletModalLabel"><h1><?php echo $u_nev ?> - Wallet</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+      <h3>credit : <span><?php echo $_SESSION['amunt'] ?></span></h3>
+      <h5>Bonus - pieces</h5>
+      <h3>Hour    : <span><?php echo $_SESSION['bonus1'] ?></span></h3>
+      <h3>Daily   : <span><?php echo $_SESSION['bonus2'] ?></span></h3>
+      <h3>Weekly  : <span><?php echo $_SESSION['bonus3'] ?></span></h3>
+      <h3>Monthly : <span><?php echo $_SESSION['bonus4'] ?></span></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Credit purchase</button>
+        <button type="button" class="btn btn-primary">Paymant</button>
+      </div>
+    </div>
   </div>
 </div>
+
 
 </html>

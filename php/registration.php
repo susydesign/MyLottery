@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="../../js/registration.js"></script>
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <title>MyTimeLotto - Registration</title>
     <link rel="stylesheet"  type="text/css" href="../css/loginphp.css"/>
@@ -21,10 +22,10 @@
             <div class="row">
                 <div class="l_fejlec01" class="col-md-4">
                     <a href="../index.php">Home</a>
-                    <a href="#">About Us</a>
-                    <a href="#">Rewards</a>
-                    <a href="#">News</a>
-                    <a href="#">Contact Us</a>
+                    <a href="../about-us.html">About Us</a>
+                    <a href="../revard.html">Rewards</a>
+                    <a href="../news.html">News</a>
+                    <a href="../contact.html">Contact Us</a>
                 </div>
                             
                 <div class="l_fejlec02" class="col-md-4">
@@ -88,11 +89,37 @@
     <form class="form" action="" method="post">
         <h1 class="login-title">Registration</h1>
         <input type="text" class="login-input" name="username" placeholder="Username" required />
-        <input type="text" class="login-input" name="email" placeholder="Email Adress">
-        <input type="password" class="login-input" name="password" placeholder="Password">
-        <input type="submit" name="submit" value="Register" class="login-button">
+        <input type="text" class="login-input" name="email" placeholder="Email Adress" />
+        <input type="password" class="login-input" name="password" placeholder="Password" />
+        <div class="form-check form-check">
+            <input id="chk_priv" type="checkbox" class="form-check-input" onclick="loginready()">
+            <label for="chk_priv" class="form-check-label"><p><a href="../privacy.html">Privacy Statement</a></p></label>
+        </div>
+        <div class="form-check form-check">
+            <input id="chk_term" type="checkbox" class="form-check-input" onclick="loginready()">
+            <label for="chk_term" class="form-check-label"><p><a href="../terms.html">Terms of Use</a></p></label>
+            
+        </div>
+        <input id="btn_log" type="submit" name="submit" value="Register" class="login-button" style="opacity: 0.4;" disabled/>
         <p class="link"><a href="login.php">Click to Login</a></p>
     </form>
+
+
+    <script>
+        function loginready(){
+        var chkPriv = document.getElementById("chk_priv");
+        var chkTerm = document.getElementById("chk_term");
+        var btnLog = document.getElementById("btn_log");
+
+        if (chkPriv.checked == true && chkTerm.checked == true){
+            btnLog.style.opacity="1";
+            btnLog.disabled = false;
+        }else{
+            btnLog.style.opacity="0.4";
+            btnLog.disabled = true;
+        }
+    }
+    </script>
 <?php
     }
 ?>
