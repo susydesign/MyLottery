@@ -2,6 +2,7 @@ $(document).ready(function() {
     var aktuser = document.getElementById('info').innerText;
     if(aktuser!=""){
         document.getElementById("btnlogin").innerHTML="Logout";
+        refWallet()
     } else {
         document.getElementById("btnlogin").innerHTML="Login";
     }
@@ -27,30 +28,33 @@ $(document).ready(function() {
 function timestamphome(){
     var date;
     date = new Date();
-    "<?php $m_buksza = 'Lonyal' ?>";
     var time = document.getElementById('timediv'); 
-    var m_credit = document.getElementById('credit');
     time.innerHTML = date.toLocaleTimeString();
-    m_credit.innerHTML="<?php $m_buksza ?>";
+    
 }
-   
-function logaction(){
-    var aktshow = document.getElementById('btnlogin').innerText;
+
+function refWallet(){
+    var m_credit = document.getElementById('credit');
+    var m_bonus1 = document.getElementById('btnBonus1');
+    var m_bonus2 = document.getElementById('btnBonus2');
+    var m_bonus3 = document.getElementById('btnBonus3');
+    var m_bonus4 = document.getElementById('btnBonus4');
+    var user_id = "0";
+
     $.ajax({
         type: "POST",
-        url: '../php/logout.php',
+        url: "./php/logout.php",
         dataType: "json",
-        data: {akcio:"Logout"},
+        data: {user_id:user_id},
         success: function(data){
-            if (data.code == "200"){
-                alert("Sikeres logot");
-                document.getElementById("btnlogin").innerHTML="Login";
-                document.getElementById("info").innerHTML="";
-            }else{
-                alert("Nincs kiléptetve");
-            };
+            m_credit.innerHTML = "<h1>"+data.amunt+"</h1>";
+            m_bonus1.innerHTML = Math.trunc(data.bonus1/4)+"<br>Hour";
+            m_bonus2.innerHTML = Math.trunc(data.bonus2/4)+"<br>Daily";
+            m_bonus3.innerHTML = Math.trunc(data.bonus3/4)+"<br>Weekly";
+            m_bonus4.innerHTML = Math.trunc(data.bonus4/4)+"<br>Monthly";
         },
         error: function(jqXHR, textStatus, errorThrown) {
+            alert("Ajax HIBA ts: "+textStatus+" thrown: "+errorThrown);
             console.log(textStatus, errorThrown)}
 
     })
@@ -197,14 +201,7 @@ function nullaz() {
     document.getElementById("inp_fog3").style.visibility="hidden";
     document.getElementById("inp_fog4").style.visibility="hidden";
 
-
-function buksza(){
-
-    $amu=$_SESSION(['amunt']);
-    return $amu;
-}
-
-alert("<?php echo buksza() ?>");
-
+    alert("firssítés..");
+    refWallet();
 }
 

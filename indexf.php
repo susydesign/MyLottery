@@ -140,25 +140,24 @@ Job28,23
     <div class="row fogad_main">
       <div class="col-md-4 register-left fogad_ball">
         <img src="./images/logo.png" alt=""/>
-        <div id="timediv" class="form-control shadow rounded""></div>
+        <div id="timediv" class="form-control shadow rounded"></div>
         <h3>3.647.489€</h3>
         <p>This prize could be yours today...</p>
         <div class="col-md">
           <div id="credit_head"><h1>Your Credit</h1></div>
-          <div id="credit"class="row">
-            <?php Echo $_SESSION['amunt']."€" ?>
+          <div id="credit" class="row">
           </div>
         </div>
-        <input type="submit" name="login" onclick="sub_login()" value="Login"/><br/>
+        <input type="submit" name="login" onclick="refWallet()" value="Wallet"/><br/>
       </div>
       <div class="col-md-8 register-right fogad_jobb">
 
         <div class="row fogad_gombok">
           <div class="col-md-12">
-            <button id="btnfogad1" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad1')" >Hour</button>
-            <button id="btnfogad2" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad2')">Daily</button>
-            <button id="btnfogad3" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad3')">Weekly</button>
-            <button id="btnfogad4" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad4')">Monthly</button>
+            <button id="btnfogad1" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad1',false)" >Hour</button>
+            <button id="btnfogad2" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad2',false)">Daily</button>
+            <button id="btnfogad3" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad3',false)">Weekly</button>
+            <button id="btnfogad4" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad4',false)">Monthly</button>
           </div>
         </div>
 
@@ -166,7 +165,7 @@ Job28,23
           <div class="col-md-12">
             <form action="./php/jatek.php" method="post" target="print-popup">
               <input id="inp_id" type="hidden" value="<?php echo $u_id;?>" name="fuser">
-              <input id="inp_fog1" type="time" step="2" min="00:00:00" max="23:59:59" class="inp_fogad1" placeholder="Hour-Min-Sec" name="fogad1">
+              <input id="inp_fog1" type="time" step="2" class="inp_fogad1" placeholder="Hour-Min-Sec" name="fogad1">
           </div>
         </div>
 
@@ -203,12 +202,12 @@ Job28,23
         </div>  
 
         <div class="row bonus_gombok">
+          <h1>B O N U S</h1>
           <div class="col-md-12">
-            <button id="btnfogad1" class="myBtnBonus myBtnFogadON" onclick="clc_fogad('btnfogad1')" >Hour</button>
-            <label for="Bonus"></label>
-            <button id="btnfogad2" class="myBtnBonus myBtnFogadON" onclick="clc_fogad('btnfogad2')">Daily</button>
-            <button id="btnfogad3" class="myBtnBonus myBtnFogadON" onclick="clc_fogad('btnfogad3')">Weekly</button>
-            <button id="btnfogad4" class="myBtnBonus myBtnFogadON" onclick="clc_fogad('btnfogad4')">Monthly</button>
+            <button id="btnBonus1" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnFogad1',true)" >Hour</button>
+            <button id="btnBonus2" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnFogad2',true)">Daily</button>
+            <button id="btnBonus3" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnFogad3',true)">Weekly</button>
+            <button id="btnBonus4" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnFogad4',true)">Monthly</button>
           </div>
         </div>
 

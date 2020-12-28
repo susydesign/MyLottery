@@ -105,6 +105,8 @@ ul {
     color: #000;
     text-align: center;
     font-size: large;
+    text-shadow: 2px 2px #c7c7c7;
+    padding-left: 40%;
 }
 
 #fejlec-03 {
