@@ -590,6 +590,14 @@ a {
     background-color: transparent;
 }
 
+.btn-fogad {
+    background-color: #FFD655;
+    margin-top: 50px;
+    font-weight: 700;
+    padding-left: 45px; 
+    padding-right: 45px;
+    border-radius: 15px;
+}
 .fa, .fas {
     font-weight: 900;
 }

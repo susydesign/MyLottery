@@ -76,10 +76,7 @@ Job28,23
                         $u_nev=$_SESSION['username'];
                         $u_id=$_SESSION['user_id'];   
                       ?> 
-<!--
-  <a href="./php/wallet.php"><?php echo $u_nev ?>
-!-->                      
-                      <button type="button  " class="btn btn-warning" data-toggle="modal" data-target="#modal_Wallet">
+                      <button type="button  " class="btn btn-fogad" data-toggle="modal" data-target="#modal_Wallet">
                       <?php echo $u_nev ?>
                       </button>                    
                     </div>
@@ -88,10 +85,6 @@ Job28,23
               </tbody>
             </table>
           </div>
-
-
-
-
 
           <div id="fejlec-03" class="col-md-4">
             <a id="btnlogin" class="mylBtn btnS glow btnBlack"  href="./php/login.php">Login</a>
@@ -109,62 +102,74 @@ Job28,23
                   <p class="welcome text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
                       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
                       Ut enim ad minim veniam, quis nostrud exercitation<br></p>
-              </div>
+                    </div>
           </div>
       </div>
       <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-12 text-center">
+        <div class="row">
+          <div class="col-md-12 text-center">
                   <div class="jackpot text-center">
-                      <span>28.454.656€</span>
-                      <br>Jackpot Total
+                    <span>28.454.656€</span>
+                    <br>Jackpot Total
                   </div>
               </div>
-          </div>
-          <div class="row">
+            </div>
+            <div class="row">
               <div class="col-md-12" style="text-align: center; margin-top:90px">
-                  <a href="#" class="mylBtn btnL glow btnDYellow">Sign Up</a>
-                  <a style="margin-left: 40px;" href="#" class="mylBtn btnL glow btnBlack">Play</a>
+                <a href="#" class="mylBtn btnL glow btnDYellow">Sign Up</a>
+                <a style="margin-left: 40px;" href="#" class="mylBtn btnL glow btnBlack">Play</a>
               </div>
-          </div>
-          <div class="row">
+            </div>
+            <div class="row">
               <div class="col-md-12">
-                  <p style="font-size:21px; text-align:center; margin-top:80px; font-weight: 300">Senectus et netus et malesuada. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Neque convallis a cras semper auctor.</p>
+                <p style="font-size:21px; text-align:center; margin-top:80px; font-weight: 300">Senectus et netus et malesuada. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Neque convallis a cras semper auctor.</p>
               </div>
-          </div>
+            </div>
       </div>
-  </section>
-
-  <section id="fogadas">
-  <div class="container register">
-    <div class="row fogad_main">
-      <div class="col-md-4 register-left fogad_ball">
-        <img src="./images/logo.png" alt=""/>
+    </section>
+    
+    <section id="fogadas">
+      <div class="container register">
+        <div class="row fogad_main">
+          <div class="col-md-4 register-left fogad_ball">
+            <img src="./images/logo.png" alt=""/>
         <div id="timediv" class="form-control shadow rounded"></div>
         <h3>3.647.489€</h3>
         <p>This prize could be yours today...</p>
         <div class="col-md">
           <div id="credit_head"><h1>Your Credit</h1></div>
           <div id="credit" class="row">
+            </div>
           </div>
-        </div>
-        <input type="submit" name="login" onclick="refWallet()" value="Wallet"/><br/>
-      </div>
-      <div class="col-md-8 register-right fogad_jobb">
+          <button type="button" class="btn btn-fogad" data-toggle="modal" data-target="#modal_Wallet">Wallet</button>
 
+        </div>
+      <div class="col-md-8 register-right fogad_jobb">
+        
         <div class="row fogad_gombok">
           <div class="col-md-12">
-            <button id="btnfogad1" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad1',false)" >Hour</button>
-            <button id="btnfogad2" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad2',false)">Daily</button>
-            <button id="btnfogad3" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad3',false)">Weekly</button>
-            <button id="btnfogad4" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad4',false)">Monthly</button>
+            <button id="btnfogad1" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad1','false')" >Hour</button>
+            <button id="btnfogad2" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad2','false')">Daily</button>
+            <button id="btnfogad3" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad3','false')">Weekly</button>
+            <button id="btnfogad4" class="myBtnFogad myBtnFogadOFF" onclick="clc_fogad('btnfogad4','false')">Monthly</button>
+          </div>
+        </div>
+        
+        <div class="row bonus_gombok">
+          <h1>B O N U S</h1>
+          <div class="col-md-12">
+            <button id="btnBonus1" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnBonus1','true')" >Hour</button>
+            <button id="btnBonus2" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnBonus2','true')">Daily</button>
+            <button id="btnBonus3" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnBonus3','true')">Weekly</button>
+            <button id="btnBonus4" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnBonus4','true')">Monthly</button>
           </div>
         </div>
 
         <div class="row fogad_inp1">
           <div class="col-md-12">
-            <form action="./php/jatek.php" method="post" target="print-popup">
+            <form action="./php/jatek_tarolo.php" method="post" target="print-popup">
               <input id="inp_id" type="hidden" value="<?php echo $u_id;?>" name="fuser">
+              <input id="inp_bonus" type="hidden" value='false' name="bonus">
               <input id="inp_fog1" type="time" step="2" class="inp_fogad1" placeholder="Hour-Min-Sec" name="fogad1">
           </div>
         </div>
@@ -201,15 +206,6 @@ Job28,23
           </div>
         </div>  
 
-        <div class="row bonus_gombok">
-          <h1>B O N U S</h1>
-          <div class="col-md-12">
-            <button id="btnBonus1" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnFogad1',true)" >Hour</button>
-            <button id="btnBonus2" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnFogad2',true)">Daily</button>
-            <button id="btnBonus3" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnFogad3',true)">Weekly</button>
-            <button id="btnBonus4" class="myBtnBonus myBtnFogadOFF" onclick="clc_fogad('btnFogad4',true)">Monthly</button>
-          </div>
-        </div>
 
         <div class="row fogad_elkuld">
           <div class="col-md-12">
@@ -531,6 +527,7 @@ Job28,23
       <div class="modal-body">
       <h3>credit : <span><?php echo $_SESSION['amunt'] ?></span></h3>
       <h5>Bonus - pieces</h5>
+      <h3>Total   : <span><?php echo $_SESSION['bonus'] ?></span></h3>
       <h3>Hour    : <span><?php echo $_SESSION['bonus1'] ?></span></h3>
       <h3>Daily   : <span><?php echo $_SESSION['bonus2'] ?></span></h3>
       <h3>Weekly  : <span><?php echo $_SESSION['bonus3'] ?></span></h3>
@@ -538,8 +535,8 @@ Job28,23
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Credit purchase</button>
-        <button type="button" class="btn btn-primary">Paymant</button>
+        <button type="button" class="btn btn-primary" id="paypal_in">Credit purchase</button>
+        <button type="button" class="btn btn-primary" id=paypal_out>Paymant</button>
       </div>
     </div>
   </div>

@@ -80,7 +80,7 @@
 
 //        echo "User name: $username";
 //        $sql    = "SELECT * FROM `users` WHERE username='$username' AND password='$password'";
-        $sql = "SELECT users.user_id,users.username,users.password,wallet.user_id,wallet.amunt, wallet.bonus1, wallet.bonus2, wallet.bonus3, wallet.bonus4 FROM `users` INNER JOIN `wallet` ON users.user_id=wallet.user_id WHERE users.username='$username' AND users.password='$password'";
+        $sql = "SELECT users.user_id,users.username,users.password,wallet.user_id,wallet.amunt, wallet.bonus, wallet.bonus1, wallet.bonus2, wallet.bonus3, wallet.bonus4 FROM `users` INNER JOIN `wallet` ON users.user_id=wallet.user_id WHERE users.username='$username' AND users.password='$password'";
 
         $result = mysqli_query($conn, $sql) or die(mysql_error());
        
@@ -89,6 +89,7 @@
             $_SESSION['user_id'] = $row[user_id];
             $_SESSION['username'] = $row[username];
             $_SESSION['amunt'] = $row[amunt];
+            $_SESSION['bonus'] = $row[bonus];
             $_SESSION['bonus1'] = $row[bonus1];
             $_SESSION['bonus2'] = $row[bonus2];
             $_SESSION['bonus3'] = $row[bonus3];
@@ -113,6 +114,7 @@
                 unset($_SESSION["user_id"]);
                 unset($_SESSION["username"]);
                 unset($_SESSION["amunt"]);
+                unset($_SESSION["bonus"]);
                 unset($_SESSION["bonus1"]);
                 unset($_SESSION["bonus2"]);
                 unset($_SESSION["bonus3"]);
@@ -137,6 +139,7 @@
         unset($_SESSION["user_id"]);
         unset($_SESSION["username"]);
         unset($_SESSION["amunt"]);
+        unset($_SESSION["bonus"]);
         unset($_SESSION["bonus1"]);
         unset($_SESSION["bonus2"]);
         unset($_SESSION["bonus3"]);
