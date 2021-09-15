@@ -1,8 +1,10 @@
 <?php
     session_start();
     require_once('db.php');
-    
-    $m_userId = $_SESSION['user_id'];
+    if(isset($_POST["user_id"])){
+        $m_userId = isset($_POST["user_id"]);
+    }
+
     $sql_wallet = "SELECT * FROM `wallet` WHERE user_id=$m_userId";
     $result = mysqli_query($conn, $sql_wallet) or die(mysql_error());
     if ($result->num_rows > 0) {

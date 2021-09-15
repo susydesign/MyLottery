@@ -1,13 +1,17 @@
 $(document).ready(function() {
 
     $(document).on('click','#btn-payin', function(event){
-        alert("Befizetés");
-        var user_id = 1;
+        var user_id = document.getElementById("inp_id").value;
+        var amunt = document.getElementById("paypalIn").value;
+
+ //       alert("user: "+user_id+" amunt: "+amunt);
+
+        //        var user_id = 1;
         $.ajax({
             type: "POST",
             url: "./php/ajax_wallet_in.php",
             dataType: "json",
-            data: {user_id:user_id},
+            data: {user_id:user_id,amunt:amunt},
             success: function(data){
                 refWallet();
                 window.close();
@@ -20,13 +24,14 @@ $(document).ready(function() {
     })
 
     $(document).on('click','#btn-payout', function(event){
-        alert("Kifizetés");
-        var user_id = 1;
+        var user_id = document.getElementById("inp_id").value;
+        var amunt = document.getElementById("paypalIn").value;
+
         $.ajax({
             type: "POST",
             url: "./php/ajax_wallet_out.php",
             dataType: "json",
-            data: {user_id:user_id},
+            data: {user_id:user_id,amunt:amunt},
             success: function(data){
                 window.close();
                 refWallet();

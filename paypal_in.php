@@ -47,6 +47,7 @@
                     <div id="info">
                       <?php
                       session_start();
+                      $user_id=$_SESSION['user_id'];
                       Echo $_SESSION['username'];
                     ?> 
 
@@ -77,7 +78,8 @@
             <form>
               <div class="form-group">
                 <label for="paypalIn">PayPal purchase</label>
-                <input type="text" class="form-control" id="paypalIn" aria-describedby="paypalInHelp" placeholder="Enter amunt">
+                <input id="inp_id" type="hidden" value="<?php echo $user_id;?>" name="user_id">
+                <input type="text" class="form-control" id="paypalIn" name="amunt" aria-describedby="paypalInHelp" placeholder="Enter amunt">
                 <small id="paypalInHelp" class="form-text text-muted">Enter pluss credit amunt</small>
               </div>
               <button id="btn-payin" type="submit" class="btn btn-primary">Purchase</button>

@@ -5,6 +5,7 @@ $(document).ready(function() {
         refWallet()
     } else {
         document.getElementById("btnlogin").innerHTML="Login";
+        refWallet()
     }
     
     var interval = setInterval(timestamphome, 1000);
@@ -49,7 +50,7 @@ function refWallet(){
     var m_bonus2 = document.getElementById('btnBonus2');
     var m_bonus3 = document.getElementById('btnBonus3');
     var m_bonus4 = document.getElementById('btnBonus4');
-    var user_id = "0";
+    var user_id = document.getElementById("inp_id").value;
 
     $.ajax({
         type: "POST",
@@ -293,7 +294,6 @@ function nullaz() {
     document.getElementById("inp_fog3").style.visibility="hidden";
     document.getElementById("inp_fog4").style.visibility="hidden";
 
-    alert("firssítés..");
     refWallet();
 }
 
